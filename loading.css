@@ -1,0 +1,100 @@
+:root {
+    --bg-main: #050508;
+    --neon-cyan: #00fff2;
+    --neon-pink: #ff2e91;
+    --text-main: #e0e0ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.video-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.18;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loading-container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 12px var(--neon-cyan));
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 2.5rem;
+    opacity: 0.8;
+}
+
+.progress-wrapper {
+    width: min(90%, 450px);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    transition: width 0.15s ease;
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.progress-text {
+    font-size: 0.95rem;
+    color: var(--neon-cyan);
+    font-weight: 600;
+}
+
+/* Penyesuaian tampilan HP */
+@media (max-width: 480px) {
+    .title { font-size: 2.2rem; }
+    .logo { width: 100px; height: 100px; }
+}
