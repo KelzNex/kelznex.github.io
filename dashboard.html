@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasbor | KelzNex</title>
+    <link rel="icon" href="assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div id="toast" class="toast hidden"></div>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Logo KelzNex" class="mini-logo">
+                <span class="brand-name">KELZNEX</span>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active"><span>📊</span> Dasbor</a>
+                <a href="#" class="menu-item"><span>📤</span> Unggah</a>
+                <a href="#" class="menu-item"><span>📅</span> Terjadwal</a>
+                <a href="#" class="menu-item"><span>📈</span> Analitik</a>
+                <a href="#" class="menu-item"><span>⚙️</span> Pengaturan</a>
+                <a href="#" class="menu-item" id="btnKeluar"><span>🚪</span> Keluar</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <button class="toggle-btn" id="tombolSamping">☰</button>
+                <div class="profile-area">
+                    <img src="assets/avatar.png" alt="Foto Profil" class="avatar" id="fotoProfil">
+                    <span id="namaPengguna">Memuat...</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Unggahan</h3>
+                        <p class="num" id="jumlahVideo">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Jadwal Aktif</h3>
+                        <p class="num">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Dilihat</h3>
+                        <p class="num" id="jumlahLihat">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Suka</h3>
+                        <p class="num" id="jumlahSuka">0</p>
+                    </div>
+                </div>
+
+                <div class="grid-cols-2">
+                    <div class="card">
+                        <h3>Unggah Video Kualitas Asli (Sampai 4K)</h3>
+                        <div class="drop-area" id="areaTaruh">
+                            <p>Tarik berkas atau klik pilih video (MP4/MOV)</p>
+                            <input type="file" accept="video/mp4,video/quicktime" id="berkasVideo" hidden>
+                        </div>
+                        <div class="upload-progress hidden" id="kotakProses">
+                            <div class="progress-bar-sm">
+                                <div class="progress-fill-sm" id="isiProses"></div>
+                            </div>
+                            <span id="teksProses">0%</span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Keterangan & Tagar</label>
+                            <textarea id="keterangan" rows="3" placeholder="Tulis keterangan disini..."></textarea>
+                        </div>
+                        <div class="row-flex gap-2 mt-3">
+                            <div class="form-group flex-1">
+                                <label>Visibilitas</label>
+                                <select id="tingkatPribadi">
+                                    <option value="PUBLIC">Publik</option>
+                                    <option value="FRIENDS">Hanya Teman</option>
+                                    <option value="PRIVATE">Pribadi</option>
+                                </select>
+                            </div>
+                            <div class="form-group flex-1">
+                                <label>Unggah Terjadwal</label>
+                                <input type="datetime-local" id="waktuJadwal">
+                            </div>
+                        </div>
+                        <button class="btn-neon w-full mt-4" id="btnUnggah">Kirim Kualitas Asli</button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="card">
+                            <h3>Grafik Kunjungan</h3>
+                            <canvas height="180" id="grafikLihat"></canvas>
+                        </div>
+                        <div class="card">
+                            <h3>Riwayat Unggahan Terbaru</h3>
+                            <div id="daftarRiwayat" class="list-item text-gray">Belum ada riwayat</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">© 2026 KelzNex | Alat Unggah Resmi TikTok</footer>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
